@@ -6,7 +6,10 @@ namespace ConsoleCalculatorPostfixNotation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Clear();
+            string input = Console.ReadLine();
+
+            Console.ReadLine();
         }
     }
 }
