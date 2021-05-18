@@ -13,20 +13,20 @@ namespace ConsoleCalculatorPostfixNotation
             Console.ReadLine();
         }
 
-        static int Calculate(string expression)
+        static decimal Calculate(string expression)
         {
-            Stack<int> stack = new Stack<int>();
+            Stack<decimal> stack = new Stack<decimal>();
             foreach (string item in expression.Split(' '))
             {
-                try
+
+                if (Decimal.TryParse(item, out decimal number))
                 {
-                    int number = Int32.Parse(item);
                     stack.Push(number);
                 }
-                catch (FormatException)
+                else
                 {
-                    int a = stack.Pop();
-                    int b = stack.Pop();
+                    decimal a = stack.Pop();
+                    decimal b = stack.Pop();
                     switch (item)
                     {
                         case "+":
@@ -46,6 +46,7 @@ namespace ConsoleCalculatorPostfixNotation
                     }
                 }
             }
+
             return stack.Peek();
         }
     }
